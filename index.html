@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>برنامج أفق - تحليل النتائج والخطط العلاجية</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f8f9fa; color: #333; line-height: 1.6; padding-bottom: 40px; }
+        
+        /* الترويسة */
+        .header { 
+            background: linear-gradient(135deg, #1a5f7a 0%, #2a9d8f 100%); 
+            color: white; 
+            padding: 2rem 1.5rem; 
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .header h1 { margin-bottom: 0.5rem; font-size: 2.2rem; }
+        .header p { opacity: 0.9; max-width: 800px; margin: 0 auto; }
+        
+        /* محتوى الصفحة */
+        .container { max-width: 1200px; margin: 2rem auto; padding: 0 1.5rem; }
+        
+        /* بطاقة الإحصائيات الرئيسية */
+        .main-stats { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 20px; 
+            margin-bottom: 3rem; 
+        }
+        .stat-card { 
+            background: white; 
+            border-radius: 12px; 
+            padding: 1.8rem; 
+            text-align: center; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            flex: 1; 
+            min-width: 250px; 
+            max-width: 300px; 
+            border-top: 5px solid #2a9d8f; 
+        }
+        .stat-number { 
+            font-size: 2.8rem; 
+            font-weight: bold; 
+            color: #1a5f7a; 
+            margin: 0.5rem 0; 
+        }
+        .stat-card.target { border-top-color: #e63946; }
+        .stat-card.target .stat-number { color: #e63946; }
+        
+        /* أقسام المحتوى */
+        .content-section { 
+            background: white; 
+            border-radius: 12px; 
+            padding: 2rem; 
+            margin-bottom: 2.5rem; 
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08); 
+        }
+        .section-title { 
+            color: #1a5f7a; 
+            border-bottom: 2px solid #a8dadc; 
+            padding-bottom: 0.75rem; 
+            margin-bottom: 1.5rem; 
+            font-size: 1.6rem; 
+        }
+        
+        /* قائمة التصنيف */
+        .level-list { list-style: none; margin-top: 1rem; }
+        .level-list li { 
+            padding: 1rem; 
+            margin-bottom: 0.8rem; 
+            background: #f1faee; 
+            border-right: 4px solid #457b9d; 
+            border-radius: 6px; 
+            display: flex; 
+            justify-content: space-between;
+        }
+        .level-list li.advanced { border-right-color: #2a9d8f; }
+        .level-list li.intermediate { border-right-color: #e9c46a; }
+        .level-list li.basic { border-right-color: #f4a261; }
+        .level-list li.needs-support { border-right-color: #e63946; }
+        
+        /* جدول الخطط */
+        .plan-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        .plan-table th { 
+            background-color: #1a5f7a; 
+            color: white; 
+            padding: 1rem; 
+            text-align: right; 
+        }
+        .plan-table td { 
+            padding: 1rem; 
+            border-bottom: 1px solid #ddd; 
+            vertical-align: top; 
+        }
+        .plan-table tr:nth-child(even) { background-color: #f8f9fa; }
+        .plan-table tr:hover { background-color: #f1faee; }
+        
+        /* التذييل */
+        .footer { 
+            text-align: center; 
+            margin-top: 3rem; 
+            padding: 1.5rem; 
+            color: #6c757d; 
+            border-top: 1px solid #dee2e6; 
+        }
+        
+        /* تجاوب للجوال */
+        @media (max-width: 768px) {
+            .main-stats { flex-direction: column; align-items: center; }
+            .stat-card { max-width: 100%; }
+            .plan-table { display: block; overflow-x: auto; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ترويسة الصفحة -->
+    <header class="header">
+        <h1>تحليل نتائج المتعلمين والخطط العلاجية</h1>
+        <p>برنامج "أفق" لرفع التحصيل الدراسي - مبادرة المعلم المتقدم التربوي: أ. عبدالله بن محمد حمدي</p>
+        <p>تحليل تفصيلي لأداء الطالب بعد تطبيق التصنيف والخطط العلاجية الفردية والجماعية</p>
+    </header>
+    
+    <!-- الإحصائيات الرئيسية -->
+    <div class="container">
+        <div class="main-stats">
+            <div class="stat-card">
+                <h3>متوسط درجات الصف</h3>
+                <div class="stat-number">70%</div>
+                <p>الهدف المتحقق بعد تطبيق البرنامج</p>
+            </div>
+            <div class="stat-card">
+                <h3>إجمالي عدد الطلاب</h3>
+                <div class="stat-number">38</div>
+                <p>طلاب الصف الأول الثانوي</p>
+            </div>
+            <div class="stat-card target">
+                <h3>متوسط التحسن</h3>
+                <div class="stat-number">18.5%</div>
+                <p>مقارنة بين الأداء قبل وبعد البرنامج</p>
+            </div>
+            <div class="stat-card">
+                <h3>نسبة الطلاب المحسنين</h3>
+                <div class="stat-number">84%</div>
+                <p>من إجمالي الطلاب أظهروا تحسناً ملحوظاً</p>
+            </div>
+        </div>
+        
+        <!-- قسم: تصنيف مستويات الطلاب -->
+        <section class="content-section">
+            <h2 class="section-title">📈 تصنيف مستويات الطلاب الدراسية</h2>
+            <p>تم تقسيم الطلاب إلى أربعة مستويات بناءً على تحليل شامل لأدائهم في الاختبارات القبلية والسلوك الصفي، مما شكل الأساس لبناء الخطط العلاجية المخصصة:</p>
+            
+            <ul class="level-list">
+                <li class="advanced">
+                    <strong>المستوى المتقدم (9 طلاب)</strong>
+                    <span>أداء متميز في الاختبارات القبلية والتفاعل الصفي. دورهم كقادة مجموعات.</span>
+                </li>
+                <li class="intermediate">
+                    <strong>المستوى المتوسط (16 طلاب)</strong>
+                    <span>أداء جيد مع وجود مجال للتحسين في مهارات محددة. تركيز على التطوير.</span>
+                </li>
+                <li class="basic">
+                    <strong>المستوى الأساسي (10 طلاب)</strong>
+                    <span>يحتاجون إلى دعم في الأساسيات. تطبيق خطط علاجية مكثفة.</span>
+                </li>
+                <li class="needs-support">
+                    <strong>المستوى الذي يحتاج دعمًا مكثفًا (3 طلاب)</strong>
+                    <span>تحديات في التحصيل والسلوك. متابعة فردية يومية.</span>
+                </li>
+            </ul>
+        </section>
+        
+        <!-- قسم: الخطط العلاجية والتأثير -->
+        <section class="content-section">
+            <h2 class="section-title">🩺 الخطط العلاجية المطبقة وتأثيرها</h2>
+            <p>تم تصميم خطط علاجية مختلفة لكل مستوى، مع متابعة أسبوعية أدت إلى تحسن متوسط الدرجات إلى 70%:</p>
+            
+            <table class="plan-table">
+                <thead>
+                    <tr>
+                        <th>المستوى</th>
+                        <th>الاستراتيجية العلاجية</th>
+                        <th>مثال من الطلاب</th>
+                        <th>نسبة التحسن</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>المتقدم</strong></td>
+                        <td>تكليفهم بتدريس زملائهم (التعلم التشاركي) وإعداد بنوك الأسئلة التفاعلية.</td>
+                        <td>تركي بن محمد، ضاري بن صالح</td>
+                        <td>+23% إلى +28%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>المتوسط</strong></td>
+                        <td>مجموعات تعاونية تركزية، مهام بحثية قصيرة، تقييم ذاتي.</td>
+                        <td>ياسر بن ماجد، عبدالعزيز بن جابر</td>
+                        <td>+33% إلى +42%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>الأساسي</strong></td>
+                        <td>جلسات علاجية أسبوعية، حصص تقوية، استخدام منصات تعلم تفاعلية.</td>
+                        <td>عصام بن احمد، محمد بن اسماعيل</td>
+                        <td>+51% إلى +69%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>دعم مكثف</strong></td>
+                        <td>خطة فردية يومية، التواصل مع الأسرة، أهداف أسبوعية صغيرة ومتابعة سلوكية.</td>
+                        <td>الوليد بن خالد، برزان بن نايف</td>
+                        <td>+57% إلى +90%</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div style="background-color: #f1faee; padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+                <h4 style="color: #1a5f7a; margin-bottom: 0.5rem;">💡 خلاصة التأثير</h4>
+                <p>أظهر تحليل البيانات أن <strong>الطلاب في المستويات الأقل كان لديهم أكبر نسبة تحسن</strong> بعد تطبيق الخطط العلاجية المركزة، مما يؤكد فعالية التقسيم حسب المستوى والمتابعة الفردية. تحسن التفاعل الصفي والإيجابية السلوكية كانا عاملين رئيسيين في هذا التحسن الأكاديمي.</p>
+            </div>
+        </section>
+        
+        <!-- قسم: توصيات للمرحلة القادمة -->
+        <section class="content-section">
+            <h2 class="section-title">🚀 توصيات استمرارية النجاح</h2>
+            <p>لضمان استمرار التقدم وتحقيق متوسط أعلى في المستقبل:</p>
+            <ul class="level-list">
+                <li><strong>تطوير بنوك الأسئلة:</strong> توسيع مشاريع الطلاب لإنشاء مكتبة شاملة للصفوف الأخرى.</li>
+                <li><strong>نظام المتابعة الرقمية:</strong> إنشاء نموذج إلكتروني لمتابعة الخطط العلاجية أسبوعياً.</li>
+                <li><strong>دورات للقادة الطلابيين:</strong> تدريب الطلاب المتقدمين على مهارات التدريس والتوجيه.</li>
+                <li><strong>ورش عمل لأولياء الأمور:</strong> شرح استراتيجيات البرنامج لتعزيز التعاون بين البيت والمدرسة.</li>
+            </ul>
+        </section>
+    </div>
+    
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <p>برنامج "أفق" لرفع التحصيل الدراسي - مادة الكيمياء - الصف الأول الثانوي</p>
+        <p>© 2025 مبادرة المعلم المتقدم التربوي: أ. عبدالله بن محمد حمدي. جميع الحقوق محفوظة.</p>
+        <p><a href="https://abdullh10.github.io/OFUQ/" style="color: #1a5f7a;">العودة إلى الصفحة الرئيسية لبرنامج أفق</a></p>
+    </footer>
+</body>
+</html>
